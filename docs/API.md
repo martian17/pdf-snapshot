@@ -71,7 +71,7 @@ You can compile this tool into a standalone binary using PyInstaller:
 
 ```bash
 pip install pyinstaller
-pyinstaller --onefile --name pdf-snapshot pdf_snapshot_tool
+pyinstaller --onefile --name pdf-snapshot pdf_snapshot/__main__.py
 ```
 
 The compiled binary will be located in the `dist/` directory.
