@@ -19,9 +19,9 @@ Generate a snapshot with default optimal layout matching the landscape golden ra
 ./pdf-snapshot document.pdf
 ```
 
-Recreate the reference image exactly (7x10 grid with columns 1 and 2 outlined in red):
+Highlight a block of pages in grid coordinates (e.g. outline columns 1 and 2 in red):
 ```bash
-./pdf-snapshot 2601.20927v1.pdf output_grid.png --preset reference --demarcate-grid-block 1,1,7,2
+./pdf-snapshot sample.pdf output_grid.png --preset reference --demarcate-grid-block 1,1,1,2
 ```
 
 ## Options

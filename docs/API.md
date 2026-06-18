@@ -24,14 +24,14 @@ You can use this library directly inside Python scripts:
 from pdf_snapshot import create_snapshot
 
 rows, cols, final_ratio, img_w, img_h = create_snapshot(
-    pdf_path="2601.20927v1.pdf",
+    pdf_path="sample.pdf",
     output_path="output_grid.png",
     target_ratio=1.618,
     page_width=120,
     render_dpi=150,
     bg_color="#f0f2f5",
     layout_preset="reference",
-    demarcated_pages=[1, 2, 3, 5],
+    demarcated_pages=[1, 2],
     demarcation_style={"color": "blue", "width": 4, "padding": 6}
 )
 

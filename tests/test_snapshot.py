@@ -55,7 +55,7 @@ class TestPdfSnapshot(unittest.TestCase):
             parse_demarcation_style("unknown_key=val")
             
     def test_create_snapshot(self):
-        pdf_path = "2601.20927v1.pdf"
+        pdf_path = "sample.pdf"
         if not os.path.exists(pdf_path):
             self.skipTest("Sample PDF not found")
             
@@ -69,13 +69,13 @@ class TestPdfSnapshot(unittest.TestCase):
                 target_ratio=1.618,
                 page_width=96,
                 layout_preset="reference",
-                demarcated_grid_blocks=[(7, 2, 1, 1)]  # test coordinates sorting/normalization
+                demarcated_grid_blocks=[(1, 2, 1, 1)]  # test coordinates sorting/normalization
             )
             self.assertTrue(os.path.exists(out_path))
-            self.assertEqual(rows, 7)
-            self.assertEqual(cols, 10)
-            self.assertEqual(w, 1612)
-            self.assertEqual(h, 994)
+            self.assertEqual(rows, 1)
+            self.assertEqual(cols, 2)
+            self.assertEqual(w, 300)
+            self.assertEqual(h, 165)
 
             # Test input validation errors
             with self.assertRaises(ValueError):
