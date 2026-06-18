@@ -24,6 +24,23 @@ Highlight a block of pages in grid coordinates (e.g. outline columns 1 and 2 in 
 ./pdf-snapshot sample.pdf output_grid.png --preset reference --demarcate-grid-block 1,1,1,2
 ```
 
+## Building the Binary
+
+To compile the standalone executable yourself:
+
+```bash
+# 1. Install dependencies and PyInstaller
+pip install -r requirements.txt pyinstaller
+
+# 2. Build the executable
+pyinstaller --onefile --name pdf-snapshot pdf_snapshot/__main__.py
+```
+
+The compiled binary will be generated at `dist/pdf-snapshot`. You can copy it to the root of the project to run it locally:
+```bash
+cp dist/pdf-snapshot .
+```
+
 ## Options
 
 Run with `--help` to view all CLI options:
