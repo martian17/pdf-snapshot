@@ -96,6 +96,11 @@ def main():
         "-s", "--demarcate-style",
         help="Custom outline styling for page/block demarcation. Format: 'color=hex_or_name,width=int,padding=int' (e.g., 'color=blue,width=4,padding=5')."
     )
+    parser.add_argument(
+        "--row-major",
+        action="store_true",
+        help="Layout pages in row-major order (left-to-right, top-to-bottom). Default is column-major order."
+    )
     
     args = parser.parse_args()
     
@@ -140,6 +145,7 @@ def main():
             page_width=args.page_width,
             render_dpi=args.dpi,
             bg_color=bg_color,
+            column_major=not args.row_major,
             layout_preset=preset,
             custom_gap_x=args.gap_x,
             custom_gap_y=args.gap_y,

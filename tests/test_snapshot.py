@@ -62,7 +62,7 @@ class TestPdfSnapshot(unittest.TestCase):
         with tempfile.TemporaryDirectory() as tmpdir:
             out_path = os.path.join(tmpdir, "output.png")
             
-            # Test successful creation with demarcations and grid blocks (also verifies coord sorting)
+            # Test successful creation with default column-major order (also verifies coord sorting)
             rows, cols, ratio, w, h = create_snapshot(
                 pdf_path=pdf_path,
                 output_path=out_path,
@@ -76,6 +76,20 @@ class TestPdfSnapshot(unittest.TestCase):
             self.assertEqual(cols, 2)
             self.assertEqual(w, 300)
             self.assertEqual(h, 165)
+
+            # Test successful creation with row-major order
+            out_path_rm = os.path.join(tmpdir, "output_rm.png")
+            rows, cols, ratio, w, h = create_snapshot(
+                pdf_path=pdf_path,
+                output_path=out_path_rm,
+                target_ratio=1.618,
+                page_width=96,
+                column_major=False,
+                layout_preset="reference",
+            )
+            self.assertTrue(os.path.exists(out_path_rm))
+            self.assertEqual(rows, 1)
+            self.assertEqual(cols, 2)
 
             # Test input validation errors
             with self.assertRaises(ValueError):

@@ -30,6 +30,7 @@ rows, cols, final_ratio, img_w, img_h = create_snapshot(
     page_width=120,
     render_dpi=150,
     bg_color="#f0f2f5",
+    column_major=True,
     layout_preset="reference",
     demarcated_pages=[1, 2],
     demarcation_style={"color": "blue", "width": 4, "padding": 6}
@@ -53,6 +54,7 @@ Exposes the core grid layout and snapshotting rendering:
 | `page_width` | `int` | `120` | Width of each page thumbnail in pixels. Height scales automatically. |
 | `render_dpi` | `int` | `150` | Resolution for rendering PDF pages before scaling down. |
 | `bg_color` | `str`/`tuple` | `"#f0f2f5"` | Canvas background color. |
+| `column_major` | `bool` | `True` | Layout pages in column-major order (top-to-bottom, then left-to-right). |
 | `layout_preset` | `str` | `"reference"` | Preset spacing: `"reference"`, `"compact"`, or `"custom"`. |
 | `custom_gap_x` | `int`/`None` | `None` | Horizontal spacing between page columns (for `"custom"` preset). |
 | `custom_gap_y` | `int`/`None` | `None` | Vertical spacing between page rows (for `"custom"` preset). |

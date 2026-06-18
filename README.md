@@ -53,6 +53,7 @@ Run with `--help` to view all CLI options:
 - `-d, --dpi`: DPI for rendering PDF pages before downscaling (default: 150).
 - `-b, --bg-color`: Background color (hex or color name).
 - `--preset`: Layout preset (`reference`, `compact`, or `custom`).
+- `--row-major`: Layout pages in row-major order (default is column-major).
 - `-p, --demarcate-pages`: Page ranges to outline (e.g. `1-3,5`).
 - `-g, --demarcate-grid-block`: Outline rectangular blocks of pages (e.g. `1,1,7,2`).
 - `-s, --demarcate-style`: Custom highlight borders (e.g. `color=blue,width=4,padding=6`).

@@ -122,6 +122,7 @@ def create_snapshot(
     page_width=120,
     render_dpi=150,
     bg_color="#f0f2f5",
+    column_major=True,
     layout_preset="reference",
     custom_gap_x=None,
     custom_gap_y=None,
@@ -228,8 +229,12 @@ def create_snapshot(
         # Position page cells
         page_coords = {}
         for idx in range(num_pages):
-            r = idx // cols
-            c = idx % cols
+            if column_major:
+                c = idx // rows
+                r = idx % rows
+            else:
+                r = idx // cols
+                c = idx % cols
             x1 = margin_x + c * (pw + gap_x)
             y1 = margin_y + r * (ph + gap_y)
             x2 = x1 + pw
