@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=61.0.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pdf-snapshot"
+version = "1.0.0"
+description = "Generates slide-ready grid snapshots of PDF documents in the landscape golden ratio."
+readme = "README.md"
+requires-python = ">=3.8"
+dependencies = [
+    "Pillow>=10.0.0",
+    "PyMuPDF>=1.22.0"
+]
+authors = [
+    { name = "Antigravity", email = "antigravity@google.com" }
+]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent"
+]
+
+[project.scripts]
+pdf-snapshot = "pdf_snapshot.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["pdf_snapshot"]
