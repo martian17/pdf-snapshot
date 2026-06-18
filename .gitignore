@@ -37,3 +37,8 @@ htmlcov/
 # Local / Output files
 output_grid.png
 output.png
+*.spec
+pdf-snapshot
+tmp/
+
+

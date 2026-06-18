@@ -22,7 +22,11 @@ def main():
     )
     
     parser.add_argument("pdf_path", help="Path to the input PDF file.")
-    parser.add_argument("output_path", help="Path where the output PNG should be saved.")
+    parser.add_argument(
+        "output_path",
+        nargs="?",
+        help="Path where the output PNG should be saved. If not specified, defaults to the input PDF filename with a .png extension."
+    )
     
     parser.add_argument(
         "-r", "--ratio",
@@ -122,10 +126,16 @@ def main():
     if bg_color is None:
         bg_color = "white" if preset == "reference" else "#f0f2f5"
         
+    output_path = args.output_path
+    if not output_path:
+        import os
+        base, _ = os.path.splitext(args.pdf_path)
+        output_path = base + ".png"
+
     try:
         rows, cols, ratio, w, h = create_snapshot(
             pdf_path=args.pdf_path,
-            output_path=args.output_path,
+            output_path=output_path,
             target_ratio=args.ratio,
             page_width=args.page_width,
             render_dpi=args.dpi,
